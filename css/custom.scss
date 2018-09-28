@@ -1,0 +1,39 @@
+/*
+.reveal .slides {
+height: 100% !important;
+top: 0 !important;
+margin-top: 0 !important;
+}
+
+.reveal .slides>section {
+min-height: 90% !important;
+top: auto !important;
+}
+
+.reveal .slides>section>section {
+min-height: 100% !important;
+}
+*/
+
+.reveal pre {
+	width: 120%;
+	margin-left: -10%;
+}
+
+
+
+.reveal p, .reveal ol {
+	font-size:1.3rem;
+}
+
+.reveal .hljs-meta {
+	color:#9999FF;
+}
+
+
+.reveal p code {
+	color:white;
+	font-size: 1.3rem;
+	background-color:#3f3f3f;
+	padding:5px;
+}
