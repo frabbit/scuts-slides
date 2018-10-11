@@ -1,14 +1,14 @@
 ### Resolution Scopes
 
-There are different scopes where we look for **candidates**,
-the order is important, the algorithm is looking in the local
-scope first.
+There are different scopes where we look for **candidates**.
+The order is important, because the first scope wins atm. 
+The algorithm is looking in the local scope first and moves step by step to the global scope.
 
-1. Call site Scopes
+1. Call site scopes
 	1. local
 	2. member
 	3. static
-	4. module (static variables of other module types)
+	4. module (statics of other types in the same module)
 	5. module context (import, using)
 
 2. Global Scopes

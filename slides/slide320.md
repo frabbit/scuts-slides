@@ -2,7 +2,7 @@
 
 #### Return type polymorphism.
 
-or the api has to be changed
+Or the api has to be changed
 
 ```haxe
 class CreateApi {

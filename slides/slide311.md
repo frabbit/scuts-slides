@@ -2,6 +2,5 @@
 
 #### Return type polymorphism.
 
-As a workaround CreateApi.create can be implemented as a macro.
-
-
+Or CreateApi.create can be implemented as a macro 
+(We have `Context.getExpectedType`)

@@ -12,7 +12,7 @@ interface Ord<T> {
 
 ```haxe
 class OrdInt<T> {
-  public final Eq:EqInt;
+  public final Eq:EqInt; // via composition
 
   function new () {
     this.Eq = EqInt.instance;

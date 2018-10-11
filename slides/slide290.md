@@ -1,20 +1,17 @@
-### Higher Kinded Types
+### Functor, Monad etc.
 
-Another feature currently implemented in a haxe branch of mine is Higher Kinded Types.
-This allows abstracting over Type Constructors like Array or Option.
+Higher kinded types in combination with typeclasses allow defining Functors, Monads etc.
 
-In combination with typeclasses it allows defining Functors, Monads etc.
+Monad Transformers etc. are also working.
 
 ```haxe
-interface Functor<F>
-{
+interface Functor<F> {
 	public function map<A,B>(x:F<A>, f:A->B):F<B>;
 }
 ```
 implementation for Array
 ```haxe
 class FunctorArray<R> implements Functor<Array<_>> implements ImplicitInstance {
-
 	public inline function map <A,B>(a:Array<A>, f:A->B):Array<B> {
 		return a.map(f);
 	}

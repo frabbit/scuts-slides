@@ -7,13 +7,13 @@ var toStringBool = new ToStringBool();
 toString(true, ?); // the local variable toStringBool looks compatible
 ```
 
-But, we don't want to test all variables because it's expensive and not controllable. We need to mark them.
+But, we don't want to test all variables because it's expensive and quite intrusive. Currently you have to mark them.
 
 ```haxe
 // for static and member variables
 @:implicit var toStringBool = new ToStringBool(); 
 // for local variables metadata is not analyzable from our macro
-// so we misuse the variable type for that.
+// so we misuse the variable type to mark them.
 var toStringBool:Implicit<ToStringBool> = new ToStringBool(); 
 ```
 

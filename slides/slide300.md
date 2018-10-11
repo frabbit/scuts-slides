@@ -9,12 +9,14 @@ interface Create<F>
 }
 
 class CreateApi {
-	public static function createEmpty <F,A>(?C:Implicit<Create<F>>):F<A> return C.createEmpty();
+	public static function createEmpty <F,A>(?C:Implicit<Create<F>>):F<A> {
+		return C.createEmpty();
+	}
 }
 ```
 
-The following does not work, because the type of the implicit parameter depends on the return type and not 
-on the leading function parameters types.
+The following code does not work, because the type of the implicit parameter depends on the return type and not 
+on the leading function parameter types.
 
 ```haxe
 var x : Array<Int> = CreateApi.createEmpty();

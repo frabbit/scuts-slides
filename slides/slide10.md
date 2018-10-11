@@ -17,7 +17,8 @@ interface Eq<A> {
 }
 ```
 
-Implementation (The name **EqPerson** is more a convention than a requirement)
+Implementation of a type class, also called instance of a type class. 
+The name **EqPerson** is more a convention than a requirement.
 ```haxe
 class EqPerson implements Eq<Person> {
   function eq (a1:Person, a2:Person) {
