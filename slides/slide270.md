@@ -20,7 +20,7 @@ class EqString implements Eq<String> {
 ```
 
 The expressions of the two stored candidates are `Eq.EqInt.instance` and `Eq.EqString.instance`.
-Both are registered the type itself and for all implemented interfaces recursively.
+Both are registered for the type itself and for all implemented interfaces recursively.
 In case of `EqInt` it's `EqInt` and `Eq<Int>`, which means whenever the algorithm looks for one 
 of those types in the global scope this candidate is selected and the corresponding expression is generated.
 

@@ -1,6 +1,7 @@
 ### Higher Kinded Types
 
 Another feature currently implemented in a haxe branch of mine is Higher Kinded Types.
+This allows abstracting over Type Constructors like Array or Option.
 
 In combination with typeclasses it allows defining Functors, Monads etc.
 

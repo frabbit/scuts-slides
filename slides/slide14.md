@@ -1,13 +1,10 @@
-### Local Scope
+### Motivation
 
-```haxe
-var eqInt:Implicit<EqInt> = new EqInt(); 
-// eqInt is available for resolution
-```
+Why type class? 
 
-```haxe
-function foo (eqInt:Implicit<EqInt>) {
-	// eqInt is available here
-}
+That's how you define it in haskell.
 
+```haskell
+class Eq a where
+ eq :: a -> a -> Bool
 ```

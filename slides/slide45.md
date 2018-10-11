@@ -1,0 +1,18 @@
+### Motivation
+
+Type classes can compose.
+
+A lot more readable with implicits.
+
+```haxe
+ToStringApi.toString(true);
+ToStringApi.toString([true]);
+ToStringApi.toString([[true]]);
+```
+
+With using
+```haxe
+true.toString();
+[true].toString();
+[[true]].toString();
+```

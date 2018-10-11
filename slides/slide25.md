@@ -1,21 +1,14 @@
-### Ambiguity
+### Motivation
 
-If we find more than one candidate in one scope an error is generated
-
-```haxe
-var eqInt1:Implicit<EqInt> = new EqInt();
-var eqInt2:Implicit<EqInt> = new EqInt();
-filter(Cons(1, Nil), ?); 
-```
+Types can be made instances of a Type class retroactively.
 
 ```haxe
-var x = 0;
+interface Compare<A> {
+  function compare (a1:A, a2:A):Int;
+}
+
+class CompareString implements Compare<String> {
+  function compare (a1:String, a2:String) 
+  	return a1 < a2 ? -1 : a1 > a2 ? 1 : 0;
+}
 ```
-
-<pre>
-Test.hx:29: characters 3-26 : Ambiguity error, 2 implicits for type Eq<Int> in Local-Scope
-Test.hx:29: characters 3-26 :     eqInt2
-Test.hx:29: characters 3-26 :     eqInt1
-Test.hx:29: characters 3-26 : To resolve this issue, make sure that only one of them is in this scope.
-</pre>
-

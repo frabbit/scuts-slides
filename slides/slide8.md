@@ -1,17 +1,5 @@
-### But it's verbose and looks
+### Motivation
 
-Consider
-
-```haxe
-filter(Cons([[1,2]], Nil), [[1,2]], new EqArray(new EqArray(new EqInt())));
-```
-
-Let's take a look at the type
-```haxe
-filter:T -> Eq<T> -> T
-```
-
-Partial function application:
-```haxe
-filter.bind(Cons([[1,2]], Nil), [[1,2]]) : Eq<Array<Array<Int>> -> Array<Array<Int>
-```
+- Concept and name **type class** coming from haskell.
+- the (same) concept is called **traits** in rust.
+- type classes can be used in scala in combination with implicits.

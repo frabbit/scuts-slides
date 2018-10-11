@@ -1,21 +1,25 @@
-### Limitations
+### Motivation
 
-#### Return type polymorphism.
+Type classes can compose
 
 ```haxe
-interface Create<F>
-{
-	public function create <A>():F<A>;
-}
-
-class CreateApi {
-	public static function create <F,A>(?C:Implicit<Create<F>>):F<A> return C.create();
+interface ToString<A> {
+  function toString (x:A):String;
 }
 ```
-
-The following does not work, because the type of the implicit parameter depends on the return type and not 
-on the leading function parameters types.
-
 ```haxe
-var x : Array<Int> = CreateApi.create();
+class ToStringBool implements ToString<Bool> {
+  function toString (x:Bool) {
+    return if (x) "true" else "false";
+  }
+}
+```
+```haxe
+class ToStringArray<T> implements ToString<Array<T>> {
+  var toStringT:ToString<T>;
+  function toString (x:Array<T>) {
+    var elems = [for (e in x) toStringT.toString(e)].join(",");
+    return "[" + elems + "]";
+  }
+}
 ```

@@ -1,8 +1,20 @@
-### Collecting Candidates
+### Motivation
 
-The first step for every implicit resolution is the collection
-of all available candidates for all scopes. This step makes heavy use
-of caching and lazyness to be as fast as possible.
+Abstracts can have an implementation of a type class.
 
-For example when the algorithm looks for a candidate of type `Eq<Int>` in the global context. All static members
- having an `@:implicit` metadata inside of the module which defines the `Eq` interface are collected. 
+There is no way to do this with inheritance.
+
+```haxe
+abstract Meter(Int) {
+  public function unwrap ():Int return this;
+}
+
+interface Compare<A> {
+  function compare (a1:A, a2:A):Int;
+}
+
+class CompareMeter implements Compare<Meter> {
+  function compare (a1:Meter, a2:Meter) 
+  	return a1.unwrap() < a2.unwrap() ? -1 : a1.unwrap() > a2.unwrap() ? 1 : 0;
+}
+```

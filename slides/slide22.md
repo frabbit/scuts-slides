@@ -1,24 +1,30 @@
-### typeclass hierarchy
+### Motivation
 
-To understand the last scope where we look for implicits
-it's important that type classes can form hierachies.
+Type classes are modular.
+
+You implement them piece by piece.
 
 ```haxe
-interface Ord<T> {
-  public var Eq(default, null):Eq<T>;
-  public function compare (a:T, b:T):Int;
+@:structInit class Person { 
+  public var name: String 
 }
 ```
 
 ```haxe
-class OrdInt<T> {
-  public final Eq:EqInt;
+interface Eq<A> {
+  function eq (a1:A, a2:A):Bool;
+}
 
-  function new () {
-    this.Eq = EqInt.instance;
-  }
-  public function compare (a:Int, b:Int):Int {
-    //...
-  }
+class EqPerson implements Eq<Person> {
+  function eq (a1:Person, a2:Person) return a1.name == a2.name;
+}
+```
+```haxe
+interface Clone<A> {
+  function clone (a:A):A;
+}
+
+class ClonePerson implements Clone<Person> {
+  function clone (x:Person):Person return { name: x.name };
 }
 ```

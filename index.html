@@ -15,37 +15,71 @@
 		<script src="js/reveal.js"></script>
 		<script>
 
-      var slides = document.querySelector(".reveal .slides");
+      let fetches = [];
 
+      let done = 0;
+      const max = 500;
+      let slides = [];
+      for (i = 0; i < max; i++) {
+        const curIndex = i;
+        var f = fetch("slides/slide" + curIndex + ".md");
+        var f1 = f.then(x => { return x.status !== 404 ? curIndex : null; }, x => null);
+        f1.then(x => {
+          if (x != null && x >= 0) slides.push(x);
+        });
+        f1.then(x => done++);
+        fetches.push(f1);
 
-      for (i = 0; i <= 100; i++) {
-        var sec = document.createElement("section");
-        sec.setAttribute("data-markdown", "slides/slide" + i + ".md");
-        //sec.setAttribute("class", "center");
-        slides.appendChild(sec);
       }
 
 
-			Reveal.initialize(
-        {
-          controls: true,
-          progress: true,
-          history: true,
-          center: true,
-            // Bounds for smallest/largest possible scale to apply to content
-	        //minScale: 0.2,
-	        //maxScale: 0.8,
-          // Optional libraries used to extend on reveal.js
-          dependencies: [
+      const run = () => {
+        console.log("init");
+        slides = slides.sort( (a, b) => a < b ? -1 : a > b ? 1 : 0);
 
-            { src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
-            { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                      { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                      { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-            { src: './plugin/notes/notes.js' }
-          ]
-			}
-      );
+        let slidesEl = document.querySelector(".reveal .slides");
+        for (const j of slides) {
+          var sec = document.createElement("section");
+          sec.setAttribute("data-markdown", "slides/slide" + j + ".md");
+
+          //sec.setAttribute("class", "center");
+          slidesEl.appendChild(sec);
+        }
+
+        Reveal.initialize(
+          {
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+              // Bounds for smallest/largest possible scale to apply to content
+            //minScale: 0.2,
+            //maxScale: 0.8,
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+
+              { src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlighting(); } },
+              { src: './plugin/notes/notes.js' }
+            ]
+        }
+        );
+      };
+
+      function checkDone () {
+        setTimeout( () => {
+          if (done == max) {
+            run();
+          } else {
+            checkDone();
+          }
+        }, 50);
+      }
+      checkDone();
+
+
 		</script>
 	</body>
 </html>
