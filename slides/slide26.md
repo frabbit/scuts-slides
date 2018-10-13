@@ -6,6 +6,7 @@ There is no way to do this with inheritance.
 
 ```haxe
 abstract Meter(Int) {
+  public function new (x) this = x;
   public function unwrap ():Int return this;
 }
 

@@ -2,7 +2,7 @@
 
 Type classes can compose.
 
-A lot more readable with implicits.
+A lot more readable with implicits parameters.
 
 ```haxe
 ToStringApi.toString(true);

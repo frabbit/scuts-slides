@@ -12,7 +12,7 @@ function foo <T>(a:T, ?O:Implicit<Ord<T>>) {
 ```
 
 That's were conversions come into play, for `foo.Eq` the macro
-looks by convention in the folder `foo.eq.hierarchy`. A conversion
+looks by convention in the package `foo.eq.hierarchy`. A conversion
 could look like this. 
 
 ```haxe

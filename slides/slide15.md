@@ -9,9 +9,10 @@ class EqApi {
     return E.eq(a, b);
   }
 }
+```
 
+```haxe
 EqApi.eq(1, 1, new EqPerson());
 
 1.eq(1, new EqPerson()); // with using
-
 ```

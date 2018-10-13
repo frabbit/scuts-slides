@@ -1,8 +1,6 @@
 ### Motivation
 
-Type classes are modular.
-
-You implement them piece by piece.
+Type classes can be implemented piece by piece.
 
 ```haxe
 @:structInit class Person { 

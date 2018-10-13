@@ -1,8 +1,10 @@
 ### Typeclass and implementation type context (Global)
 
 All implicit candidates / instances defined
-in the same module as the typeclass (Eq) or the implementation
-type (Int for Eq<Int>).
+in the same module as the typeclass or the implementation
+type.
+
+Here we define the implementation for `Eq<Int>` in the same file as `Eq`.
 
 ```haxe
 // Eq.hx

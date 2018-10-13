@@ -1,8 +1,8 @@
 ### Resolution Scopes
 
-There are different scopes where we look for **candidates**.
-The order is important, because the first scope wins atm. 
-The algorithm is looking in the local scope first and moves step by step to the global scope.
+There are different scopes where the algorithm looks for **candidates**.
+The checking order is important, because the first scope wins atm. 
+The algorithm is looking in the local scope first and moves step by step to the global scope until it finds a suitable candidate.
 
 1. Call site scopes
 	1. local

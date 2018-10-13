@@ -10,6 +10,7 @@ interface Functor<F> {
 }
 ```
 implementation for Array
+
 ```haxe
 class FunctorArray<R> implements Functor<Array<_>> implements ImplicitInstance {
 	public inline function map <A,B>(a:Array<A>, f:A->B):Array<B> {

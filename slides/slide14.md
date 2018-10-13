@@ -9,4 +9,4 @@ class Eq a where
  eq :: a -> a -> Bool
 ```
 
-But it's actually more like a haxe interface.
+But it has actually more in common with a haxe interface.

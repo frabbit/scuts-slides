@@ -1,6 +1,6 @@
 ### ImplicitInstance Sugar
 
-Instead of 
+The build macro `scuts.syntax.ImplicitInstance` tranlates this
 
 ```haxe
 class EqOption implements Eq<Option<T>> {
@@ -13,7 +13,7 @@ class EqOption implements Eq<Option<T>> {
 }
 ```
 
-you can write
+into
 
 ```haxe
 class EqOption implements Eq<Option<T>> implements ImplicitInstance {

@@ -7,19 +7,15 @@ function toString <T>(a:T, E:ToString<T>):String {
   return E.toString(a);
 }
 ```
-and a valid call
+
+Let's take a look at the type of `toString`
 
 ```haxe
-toString([[true]], new ToStringArray(new ToStringArray(new ToStringBool())));
+T -> ToString<T> -> T
 ```
 
-Let's take a look at the type
-```haxe
-toString : T -> ToString<T> -> T
-```
+After function application `toString.bind([true])` it becomes:
 
-Partial function application:
 ```haxe
-toString.bind([[true]]) : ToString<Array<Array<Bool>> -> String
+ToString<Array<Bool>> -> String
 ```
-We need an expression with this type.

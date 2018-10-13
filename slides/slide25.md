@@ -2,6 +2,8 @@
 
 Types can be made instances of a Type class retroactively.
 
+No need to predict the future.
+
 ```haxe
 interface Compare<A> {
   function compare (a1:A, a2:A):Int;

@@ -1,5 +1,7 @@
 ### Module Scope
 
+Other Types in the same file.
+
 ```haxe
 class Foo {
 	// must be public

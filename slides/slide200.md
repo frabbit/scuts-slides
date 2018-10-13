@@ -1,15 +1,14 @@
 ### Typeclass and implementation type context (Global)
 
 All implicit candidates / instances defined
-in the same module as the typeclass or the implementation
-type. In case of the typeclass `Eq` and the implementation class `Foo` 
-the file `Foo.hx` would look like this:
+in the same module as the typeclass or the **implementation
+type**. 
+
+Here we define the type `Foo` and the instance implementation for `Eq` in the file `Foo.hx`:
 
 ```haxe
-// Foo.hx
 class Foo {
 	public final x : Int;
-
 	function new (x) {
 		this.x = x;	
 	}

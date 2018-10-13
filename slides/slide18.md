@@ -1,7 +1,6 @@
 ### Motivation
 
-We need a better way to use them, Motiviation for implicits.
-
+We need a better way to use them, Motiviation for implicit Parameters.
 
 ```haxe
 class EqApi {
@@ -9,9 +8,10 @@ class EqApi {
     return E.eq(a, b);
   }
 }
+```
 
+```haxe
 EqApi.eq(1, 1); // the type class instance is resolved and inserted implicitly.
 
 1.eq(1); // with using
-
 ```

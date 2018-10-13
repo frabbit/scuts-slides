@@ -1,13 +1,17 @@
 ### Implicit resolution
 
-We are looking for variables (candidates) with the right type.
+And this is roughly what happens inside of`Implicit.fromNothing()`. 
+
+For the next function call, the algorithm is looking for variables (candidates) with the right type at position `?`.
 
 ```haxe
 var toStringBool = new ToStringBool();
 toString(true, ?); // the local variable toStringBool looks compatible
 ```
 
-But, we don't want to test all variables because it's expensive and quite intrusive. Currently you have to mark them.
+But, the macro shouldn't test all available variables because that's expensive and quite intrusive. 
+
+Currently you have to mark them.
 
 ```haxe
 // for static and member variables
@@ -17,7 +21,7 @@ But, we don't want to test all variables because it's expensive and quite intrus
 var toStringBool:Implicit<ToStringBool> = new ToStringBool(); 
 ```
 
-Now the macro only looks for marked variables and unifies them against the expected type.
+Now the macro only looks for marked variables, unifies them against the expected type and finally inserts them at the expected position.
 
 ```haxe
 toString(true, toStringBool);

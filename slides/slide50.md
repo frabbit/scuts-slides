@@ -1,6 +1,6 @@
 ### Motivation
 
-Are not limited to one type, type classes can have multiple parameters.
+Are not limited to one type, type classes can be implemented for a combination of types.
 
 ```haxe
 abstract Meter(Float) {

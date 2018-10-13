@@ -1,7 +1,9 @@
 ### typeclass hierarchy
 
-To understand the last scope where we look for implicits
-it's important that type classes can form hierachies.
+To understand the last scope where the algorithm looks for implicits
+it's important to understand that type classes can form hierachies.
+
+Hierarchies of type classes are implemented as composition, not by inheritance.
 
 ```haxe
 interface Ord<T> {
